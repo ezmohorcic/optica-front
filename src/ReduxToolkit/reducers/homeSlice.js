@@ -19,7 +19,6 @@ const feedSlice = createSlice({
             state.status = action.payload.status;
         },
         setSearchingToLoading: (state) => {
-            console.log("setting to load feed")
             state.status = LOADING_0;
         },
         setFeedToLoading: (state) => {
@@ -28,7 +27,6 @@ const feedSlice = createSlice({
         },
         feedNextPageDatabase: (state, action) => {
             state.posts = [...state.posts,...action.payload];
-            console.log(state.posts)
         },
         updateFeedLikes: (state, action) => {
             state.posts[action.payload.index].likes = action.payload.data.likes;

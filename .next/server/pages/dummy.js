@@ -19,7 +19,7 @@ exports.modules = {
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ dummy)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction dummy() {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h2\", {\n        children: \"dummy\"\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\ezmoh\\\\OneDrive\\\\Documentos\\\\GitHub\\\\optica-front\\\\pages\\\\dummy\\\\index.jsx\",\n        lineNumber: 7,\n        columnNumber: 9\n    }, this);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9kdW1teS9pbmRleC5qc3guanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFBQTtBQUEwQjtBQUdYLFNBQVNDLEtBQUssR0FDN0I7SUFDSSxxQkFDSSw4REFBQ0MsSUFBRTtrQkFBQyxPQUFLOzs7OztZQUFLLENBQ2pCO0NBQ0oiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9wZi1wcm9qZWN0LW1vb24tZnJvbnQvLi9wYWdlcy9kdW1teS9pbmRleC5qc3g/MmFkNiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xyXG5cclxuXHJcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIGR1bW15KClcclxue1xyXG4gICAgcmV0dXJuKFxyXG4gICAgICAgIDxoMj5kdW1teTwvaDI+XHJcbiAgICApXHJcbn0iXSwibmFtZXMiOlsiUmVhY3QiLCJkdW1teSIsImgyIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/dummy/index.jsx\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ dummy)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ \"react-redux\");\n/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nfunction dummy() {\n    const user = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)((state)=>state.user\n    );\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h2\", {\n        children: \"dummy\"\n    }, void 0, false, {\n        fileName: \"C:\\\\Users\\\\ezmoh\\\\OneDrive\\\\Documentos\\\\GitHub\\\\optica-front\\\\pages\\\\dummy\\\\index.jsx\",\n        lineNumber: 10,\n        columnNumber: 9\n    }, this);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9kdW1teS9pbmRleC5qc3guanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7OztBQUFBO0FBQTBCO0FBQ2dCO0FBRzNCLFNBQVNFLEtBQUssR0FDN0I7SUFDSSxNQUFNQyxJQUFJLEdBQUdGLHdEQUFXLENBQUVHLENBQUFBLEtBQUssR0FBSUEsS0FBSyxDQUFDRCxJQUFJO0lBQUEsQ0FBQztJQUU5QyxxQkFDSSw4REFBQ0UsSUFBRTtrQkFBQyxPQUFLOzs7OztZQUFLLENBQ2pCO0NBQ0oiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9wZi1wcm9qZWN0LW1vb24tZnJvbnQvLi9wYWdlcy9kdW1teS9pbmRleC5qc3g/MmFkNiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xyXG5pbXBvcnQgeyB1c2VTZWxlY3RvciB9IGZyb20gJ3JlYWN0LXJlZHV4JztcclxuXHJcblxyXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBkdW1teSgpXHJcbntcclxuICAgIGNvbnN0IHVzZXIgPSB1c2VTZWxlY3Rvciggc3RhdGUgPT4gc3RhdGUudXNlcilcclxuXHJcbiAgICByZXR1cm4oXHJcbiAgICAgICAgPGgyPmR1bW15PC9oMj5cclxuICAgIClcclxufSJdLCJuYW1lcyI6WyJSZWFjdCIsInVzZVNlbGVjdG9yIiwiZHVtbXkiLCJ1c2VyIiwic3RhdGUiLCJoMiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./pages/dummy/index.jsx\n");
 
 /***/ }),
 
@@ -30,6 +30,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((module) => {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-redux":
+/*!******************************!*\
+  !*** external "react-redux" ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = require("react-redux");
 
 /***/ }),
 

@@ -1,16 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { store } from "../src/ReduxToolkit/store";
-
+import axios from "axios";
+axios.defaults.baseURL=process.env.REACT_APP_API;
 
 import App from "../src/App.jsx";
 
 export default function index()
 {
     return(
-        <Provider store={store}>
             <App/>
-        </Provider>
     )
 }
