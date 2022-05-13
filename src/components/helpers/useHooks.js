@@ -8,12 +8,10 @@ export const useLoginRedirect = (command) =>
 
     switch (command) {
         case TO_LOGIN:
-            return () => { if(!Object.keys(user).length) Router.push('/login') }
-        break;
-
+        return () => { if(!Object.keys(user).length) Router.push('/login') }
+       
         case FROM_LOGIN:
-            return () => { if(Object.keys(user).length) Router.push('/dummy') }
-        break;
+        return () => { if(Object.keys(user).length) Router.push('/dummy') }
     
         default:
         break;

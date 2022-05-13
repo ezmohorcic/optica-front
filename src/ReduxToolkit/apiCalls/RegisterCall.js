@@ -1,16 +1,15 @@
 import axios from "axios";
-import { Route } from "react-router";
+import Router from 'next/router';
 import { loginError, loginSuccess } from "../reducers/userSlice";
 
 export const registerCall = async (dispatch,info) =>{
     try
     {
         const res = await axios.post("http://localhost:3001/api/register",info); 
-        console.log(res)
         if(res.status===200)
         {
-            Route.push("/login")
-            alert("Successful Register")
+            Router.push("/login")
+            alert("Successful Register");
         }
     }
     catch(err)
