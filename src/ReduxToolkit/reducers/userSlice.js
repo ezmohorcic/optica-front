@@ -8,19 +8,38 @@ const userSlice = createSlice({
         user: {},
     },
     reducers: {
-        loginSuccess: (state, action) =>{
-            state.status = SERVER_2xx;
-            state.user = action.payload;
+        loginSuccess: ({user,status}, {payload}) =>
+        {
+            status = SERVER_2xx;
+            user = payload;
         },
-        loginError: (state, action) =>{
-            state.status = action.payload;
+        loginError: ({status}, {payload}) =>
+        {
+            status = payload;
         },
+        logout: ({user,status}) =>
+        {
+            status = STARTING_STATUS;
+            user = {};
+        },
+        addClient: ({user},{payload}) =>
+        {
+            user.clients= [payload,...user.clients]
+        },
+        addHistory: ({user},{payload}) =>
+        {
+            user.history= [payload,...user.history]
+        }
+        
     }
 });
 
 export const { 
     loginSuccess, 
     loginError,
+    logout,
+    addClient,
+    addHistory,
 } = userSlice.actions;
 
 export const userReducer = userSlice.reducer;
