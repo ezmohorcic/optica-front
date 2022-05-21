@@ -8,17 +8,23 @@ const inputsNames = ["name","surname","email","phoneNumber"];
 const inputsEng = ["name","surname","email","phone number"];
 const inputsEsp = ["nombre","apellido","email","telefono"];
 
-const AddClient = () =>
+const AddClient = ({handle_show_client}) =>
 {
     //STATES
-    const [inputs,setInputs] = useState({name:"",surname:"",email:"",phoneNumber:"",actualGlasses:""});
+    const [inputs,setInputs] = useState({name:"",surname:"",email:"",phoneNumber:"",actualGlasses:["",""]});
 
     //REDUX
     const dispatch = useDispatch();
-    const {language} = useSelector( state => state.customs )
+    const {language,theme} = useSelector( state => state.customs )
+    const {user,status} = useSelector( state => state.user )
 
     //HANDLER
-    const handle_submit = () => addClientCall(dispatch,inputs);
+    const handle_submit = (e) =>
+    {
+        e.preventDefault();
+        addClientCall(dispatch,{user:user._id,...inputs});
+        handle_show_client();
+    } 
     
     const handle_input = ({target}) => setInputs({...inputs,[target["name"]]:target.value});
 
@@ -26,7 +32,7 @@ const AddClient = () =>
     //VARIABLES FOR DISPLAY
     const inputs_show = inputsNames.map((input,i) => <input 
                                                     key={"addClInput_"+i} 
-                                                    class={css.addclientCont__input}
+                                                    className={css.addclientCont__input}
                                                     placeholder={language === "español" ? inputsEsp[i] : inputsEng[i]} 
                                                     type="text" 
                                                     name={input}

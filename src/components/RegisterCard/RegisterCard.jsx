@@ -18,12 +18,13 @@ const inputsNames=["email","password","repeat_password","username"];
     //STATES
     const [inputs,setInputs] = useState({email:"",password:"",repeat_password:"",username:""});
     const [errors,setErrors] = useState({})
-    const redirect = useLoginRedirect(FROM_LOGIN)
+
 
     //REDUX
     const dispatch = useDispatch();
-    const user = useSelector( state => state.user);
-
+    const {user,status} = useSelector( state => state.user);
+    const redirect = useLoginRedirect(FROM_LOGIN,user)
+    
     //ON MOUNT
     useEffect(redirect,[user]);
 

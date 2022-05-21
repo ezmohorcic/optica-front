@@ -1,0 +1,59 @@
+#headerCont{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 94%;
+    height: 6vh;
+
+    padding: 0 3% 0 3%;
+
+    border-bottom: 1px solid #835AFF;
+
+    box-shadow: 0 3px 10px #b298ff7f;    
+    background-color: #C8B6FF;
+
+    font-size: 1.3rem;
+}
+
+#headerCont__logo{
+    width: 5vw;
+
+    border-right: 2px solid #EDFFB8;
+}
+#headerCont__logo > svg{
+    margin: auto;
+    color: #EDFFB8;
+}
+
+#headerCont__logOut{
+    width: 5rem;
+    height: 1.5rem;
+
+    border-radius: 0.75rem;
+    border: 3px solid #EDFFB8;
+
+    box-shadow: 0 0 0 inset transparent;
+    background-color: transparent;  
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    text-align: 0.9rem;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+#headerCont__logOut:hover{
+    border-radius: 0.25rem;
+    border-color: #6B3AFF;
+    box-shadow: 0 1.5rem inset #FFD6FF;
+}
+#headerCont__logOut:active{
+    border-radius: 0.5rem;
+    border-color: #6B3AFF;
+    
+}
+#headerCont__logOut:focus{
+    border-radius: 0.5rem;
+    border-color: #9A79FF;
+}

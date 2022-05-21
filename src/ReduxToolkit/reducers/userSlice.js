@@ -8,10 +8,10 @@ const userSlice = createSlice({
         user: {},
     },
     reducers: {
-        loginSuccess: ({user,status}, {payload}) =>
+        loginSuccess: (state, {payload}) =>
         {
-            status = SERVER_2xx;
-            user = payload;
+            state.status = SERVER_2xx;
+            state.user = payload;
         },
         loginError: ({status}, {payload}) =>
         {

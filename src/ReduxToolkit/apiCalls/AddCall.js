@@ -1,12 +1,14 @@
 import axios from "axios";
-import { addClient, addHistory } from "../reducers/userSlice";
+import { addClient, changeClientDetGlasses, changeClientGlasses } from "../reducers/clientSlice";
+import { addOrder } from "../reducers/orderSlice";
 
 export const addClientCall = async (dispatch,info) =>{
     try
     {
-        const res = await axios.post("http://localhost:3001/api/clients",info); 
-        console.log(res)
-        dispatch(addClient(info));
+        console.log(info)
+        const {data} = await axios.post("http://localhost:3001/api/clients",info); 
+        console.log(data)
+        dispatch(addClient(data));
     }
     catch(err)
     {
@@ -14,15 +16,18 @@ export const addClientCall = async (dispatch,info) =>{
     }
 }
 
-export const addHistoryCall = async (dispatch,info) =>{
+export const addHistoryCall = async (dispatch,info,idClient) =>{
     try
     {
-        const res = await axios.post("http://localhost:3001/api/history",info); 
-        console.log(res)
-        dispatch(addHistory(info));
+        const {data} = await axios.post("http://localhost:3001/api/order/"+idClient,info); 
+        console.log(data)
+        dispatch(addOrder(data));
+        //dispatch(changeClientGlasses( { client:idClient, glasses:info.glasses } ))
+        dispatch(changeClientDetGlasses(data.glasses))
     }
     catch(err)
     {
+        console.log(err)
         alert("error on server")
     }
 }
