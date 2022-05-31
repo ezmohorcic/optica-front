@@ -8,7 +8,6 @@ export default function App() {
     return (
         <div id="appCont">
             <h1>Testing</h1>
-            <Link href={"/dummy"}><a>a dummy</a></Link>
         </div>
     );
 
