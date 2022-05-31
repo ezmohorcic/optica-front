@@ -1,0 +1,411 @@
+#clientsMain{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    overflow-y: scroll;
+}
+
+
+/* CLIENT CARD */
+.clientCard{
+    width: 96%;
+    height: 6rem;
+    margin: 0.5rem auto 0.5rem auto;
+
+    border-radius: 1rem;
+    
+    box-shadow: 5px 5px 5px #f0ebffdd;
+    background-color: #F0F1FF;
+
+    transition: 0.2s;
+}
+.clientCard:hover{
+    border-radius: 0.5rem;
+    background-color: #FFD6FF;
+}
+.clientCard:hover > .clientCard__name{
+    border-bottom: 2px solid #ECF2FF;
+}
+
+.clientCard__name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0;
+    padding: 0.5rem 1rem 0.2rem 1rem;
+    /* margin-bottom: 0.3rem; */
+
+    border-bottom: 2px solid #BBD0FF;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    transition: 0.2s;
+}
+
+#deleted_0,#deleted_1{
+    transition: 0.2s;
+    cursor: pointer;
+}   
+#deleted_0:hover,#deleted_1:hover{
+    color: #FF2FFF;
+}   
+#deleted_0{
+    color: #541BFF;
+}   
+#deleted_1{
+    color: red;
+}   
+
+.clientCard__info{
+    display: flex;
+    justify-content: space-around;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.clientCard__info > *{
+    cursor: pointer;
+}
+
+.clientCard__info > p{
+    transition: 0.2s;
+}
+.clientCard__info > p:hover{
+    color: #001ADB;
+}
+
+.clientCard__info > button{
+    width: fit-content;
+    height: fit-content;
+
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    margin: 1rem 0rem 1rem 0rem;
+
+    border-radius: 1rem;
+    border-color: #B8C0FF;
+
+    background-color: transparent;
+
+    transition: 0.2s;
+}
+
+.clientCard__info > button:hover{
+    padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+
+    border-color: #3A51FF;
+    
+    margin: 0.85rem 0rem 0.85rem 0rem;
+}
+
+/* CLIENT CARD */
+
+
+
+/* CLIENT DETAILED */
+
+#detailedClient{
+    width: 96%;
+    height: 96%;
+
+    margin: 2%;
+    overflow-y: scroll;
+}
+
+
+#detailedClient__buts{
+    display: flex;
+    justify-content: space-between;
+}
+#detailedClient__buts__addNew{
+    padding: 0.2rem 0.6rem 0.2rem 0.6rem;
+
+    border-radius: 0.3rem;
+    border: none;
+    border-bottom: 2px solid transparent;
+
+    background-color: transparent;
+    color: #A425FF;
+    
+    font-size: 0.85rem;
+    transition: 0.2s;
+}
+#detailedClient__buts__addNew:hover{
+    color: #7100C3;
+    border-color: #B8C0FF;
+}
+
+
+
+#detailedClient__name{
+    border-bottom: 2px solid #3A51FF;
+    padding-bottom: 0.3rem;
+    padding-left: 0.5rem;
+}
+
+
+
+#detailedClient__section, #detailedClient__sectioncl{
+    width: 96%;
+    padding: 1%;
+    margin: 0 auto 0.5rem auto;
+    margin-bottom: 0.5rem;
+
+    border-radius: 0.5rem;
+    border: 2px solid #F8DDF8;
+
+    background-color: #F4F0FF;
+}
+#detailedClient__section > strong{
+    padding-left: 0.2rem;
+}
+#detailedClient__section > small{
+    font-style: italic;
+}       
+
+
+.detailedClient__section__info{
+    display: flex;
+    justify-content: space-between;
+
+    padding-left: 0.4rem;
+
+    font-size: 0.9rem;
+}
+#detailedClient__details{
+    max-height: 4rem;
+    padding-left: 0.2rem;
+
+    overflow-y: scroll;
+}
+
+
+
+#detailedClient__sectioncl{
+    display: flex;
+    flex-wrap: wrap;
+}
+#detailedClient__sectioncl > h3{
+    width: 95%;
+    margin: 1rem 5% 1rem 0%;
+}
+
+
+#detailedClient__contactPiece{
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 48%;
+    margin: 1%;
+}
+#detailedClient__contactPiece > strong{
+    width: 100%;
+    padding-left: 0.4rem;
+    margin-bottom: 0.2rem;
+}
+#detailedClient__contactPiece > p{
+    width: 86%;
+    margin: 0;
+    margin-right: 0.2rem;
+}
+#detailedClient__contactPiece > svg,#editSvg{
+    width: 10%;
+
+    margin: 0;
+    padding-left: 0.2rem;
+
+    border-left: 2px solid;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+#detailedClient__contactPiece > svg:hover,#editSvg:hover{
+    color: #7100C3;
+}
+.contactPiece__modify{
+    width: 15rem;
+    height: 1.2rem;
+
+    border: none;
+    border-radius: 1rem;
+    border-bottom: 2px solid transparent;
+
+    font-size: 1rem;
+
+    transition: 0.2s;
+}
+.contactPiece__modify:focus{
+    outline: none;
+    border-bottom: 2px solid #BBD0FF;
+    border-radius: 0.5rem;
+}
+
+/* CLIENT DETAILED */
+
+
+/* HISTORY ARRAY */
+
+#detailedClient__sectionhs{
+    height: 40vh;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+
+    border-top: 2px solid #F8DDF8;
+
+    overflow-y: scroll;
+}
+
+.historyCard{
+    width: 96%;
+    margin: 0.5rem auto 0.5rem auto;
+    padding: 0.5rem;
+
+    
+    border-radius: 1rem;
+    
+    background-color: #F0F1FF;
+
+    transition: 0.2s;
+}
+
+.historyCard__section,.historyCard__sectionArm{
+    display: flex;
+
+    margin: 0.5rem 0 0.5rem 0;
+
+    font-size: 0.8rem;
+}
+.historyCard__section > *,.historyCard__sectionArm > *{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.historyCard__section > strong{
+    width: 10%;
+}
+.__p1{
+    width: 75%;
+}
+.__p2{
+    width: 15%;
+}
+.__p3{
+    width: 31%;
+}
+.__p4{
+    width: 25%;
+}
+
+.historyCard__sectionDet{
+    font-size: 0.8rem;
+}
+
+/* HISTORY ARRAY */
+
+
+@media screen and (max-width:768px) {
+    #clientsMain{
+        display: flex;
+        flex-direction: column;
+    
+        width: 100%;
+        height: 100%;
+    
+        overflow-y: visible;
+    }
+
+
+    .clientCard{
+        height: fit-content;
+    }
+    .clientCard__info{
+        flex-direction: column;
+        text-align: center;
+    }
+    .clientCard__info > p{
+        margin-top: 0.5rem;
+        margin-bottom: 0.2rem;
+    }
+    .clientCard__info > button{
+        margin: 0rem 2rem 1rem auto;
+    }
+    .clientCard__info > button:hover{
+        margin: 0.85rem 0rem 0.85rem auto;
+    }
+
+
+
+
+    #detailedClient__section, #detailedClient__sectioncl{
+        width: 96%;
+        padding: 1%;
+        margin: 0 auto 0.5rem auto;
+        margin-bottom: 0.5rem;
+
+        border-radius: 0.5rem;
+        border: 2px solid #F8DDF8;
+
+        background-color: #F4F0FF;
+    }   
+    .detailedClient__section__info{
+        display: flex;
+        flex-direction: column;
+        justify-content: none;
+    
+        padding-left: 0.4rem;
+    
+        font-size: 0.9rem;
+    }
+    .detailedClient__section__info > p{
+        margin: 0;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    #detailedClient__details{
+        max-height: 4rem;
+        padding-left: 0.2rem;
+    
+        overflow-y: scroll;
+    }
+    #detailedClient__contactPiece{
+        display: flex;
+        flex-wrap: wrap;
+    
+        width: 90%;
+        margin: 1%;
+    }
+
+
+
+    #detailedClient__sectionhs{
+        height: fit-content;
+    
+        overflow-y: visible;
+    }
+    
+    .historyCard{
+        width: 96%;
+        margin: 0.5rem auto 0.5rem auto;
+        padding: 0.5rem;
+    
+        
+        border-radius: 1rem;
+        
+        background-color: #F0F1FF;
+    
+        transition: 0.2s;
+    }
+    .historyCard__section,.historyCard__sectionArm{
+        display: flex;
+        flex-direction: column;
+    
+        margin: 0.5rem 0 0.5rem 0;
+    
+        font-size: 0.7rem;
+    }
+    .historyCard__section > *,.historyCard__sectionArm > *{
+        width: 100%;
+    }
+
+}

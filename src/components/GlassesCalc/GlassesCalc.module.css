@@ -1,0 +1,123 @@
+/* GLASSES CALC */
+
+#glassesCalc{
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+#glassesCalc > section{
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 100%;
+    margin: 0 auto 0 auto;
+}
+
+.glassInput{
+    display: flex;
+    align-items: center;
+
+    width: 43%;
+    height: 1.3rem;
+    margin: 0 auto 0.5rem auto;
+
+    font-size: 1em;
+}
+
+.glassInput__button{
+    width: 1.5rem;
+
+    border-radius: 0.5rem;
+    border: none;
+
+    background-color: #CBDBFF;
+
+
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+
+#glassesCalc__section__whole, #glassesCalc__section__float,#glassesCalc__section__ang{
+    border-radius: 0.5rem;
+    border: none;
+
+    background-color: #CBDBFF;
+
+    font-size: 1.1rem;
+    text-align: center;
+}
+#glassesCalc__section__whole{
+    width: 1.6rem;
+}
+#glassesCalc__section__float{
+    width: 2.5rem;
+}
+#glassesCalc__section__ang{
+    width: 2.5rem;
+}
+
+.construct{
+    height: 1.3rem;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    font-size: 1em; 
+}
+.construct > p{
+   margin: 0;
+}
+
+/* GLASSES CALC */
+
+@media screen and (max-width:768px) {
+    #glassesCalc{
+        display: flex;
+        flex-wrap: wrap;
+    
+        width: 100%;
+    }
+    #glassesCalc > section{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    
+        width: 100%;
+        margin: 0 auto 0 auto;
+
+        
+    }
+
+    .glassInput{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    
+        width:fit-content;
+        margin: auto;
+        height: fit-content;
+        margin: 0;
+        margin-bottom: 0.5rem;
+    
+        font-size: 1em;
+    }
+    #glassesCalc__section__whole{
+        width: 3rem;
+    }
+    #glassesCalc__section__float{
+        width: 2.5rem;
+    
+    }
+    #glassesCalc__section__ang{
+        width: 2.5rem;
+    }
+
+    .construct{
+        height: 4rem;
+        width: 100%;
+        margin-top: 1rem;
+    
+        font-size: 1em; 
+    }
+}

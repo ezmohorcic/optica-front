@@ -1,0 +1,96 @@
+#addclientCont{
+    grid-column: 1/2;
+    grid-row: 1/2;
+
+    margin: auto;
+    margin-top: 10%;
+    padding: 2rem;
+
+    border-radius: 1rem;
+
+    background-color: #FFF3FF;
+}
+
+#addclientCont__h2{
+    position: relative;
+    right:3.5%;
+
+    width: 105%;
+
+    padding: 0 1.25% 0.5rem 1.25%;
+
+    border-bottom: 2px solid #D6DEFF;
+}
+
+.addclientCont__input{
+    width: 39%;
+    height: 1.2rem;
+
+    margin: 1rem 4% 1rem 4%;
+    padding-left: 1%;
+
+    border-radius: 1rem;
+    border: none;
+    border: 2px solid #B8C0FF;
+
+    font-size: 1.2rem;
+
+    transition: 0.2s;
+}
+.addclientCont__input:focus{
+    outline: none;
+    border-color: #5A6DFF;
+}
+
+#addclientCont__button{
+    width: 40%;
+    height: 1.5rem;
+    margin: 0.5rem 30% 0 30%;
+
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border: 2px solid #C8B6FF;
+
+    background-color: transparent;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#addclientCont__button:hover{
+    border-color: #9A79FF;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
+    background-color: #9A79FF;
+}
+
+@media screen and (max-width:768px) {
+    #addclientCont{
+        margin-top: 15%;
+    }
+
+    #addclientCont__h2{
+        position: inherit;
+    
+        width: 100%;
+    
+        font-size: 1.2rem;
+    }
+
+    .addclientCont__input{
+        width: 70%;
+        height: 1.4rem;
+    
+        margin: 1rem 15% 1rem 15%;
+
+        font-size: 1.3rem;
+    }
+    #addclientCont__button{
+        width: 72%;
+        height: 1.5rem;
+        margin: 0.5rem 15% 0 15%;
+
+    }
+    
+}

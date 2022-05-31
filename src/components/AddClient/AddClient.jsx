@@ -8,7 +8,7 @@ const inputsNames = ["name","surname","email","phoneNumber"];
 const inputsEng = ["name","surname","email","phone number"];
 const inputsEsp = ["nombre","apellido","email","telefono"];
 
-const AddClient = ({handle_show_client}) =>
+const AddClient = ({handle_show}) =>
 {
     //STATES
     const [inputs,setInputs] = useState({name:"",surname:"",email:"",phoneNumber:"",actualGlasses:["",""]});
@@ -23,7 +23,7 @@ const AddClient = ({handle_show_client}) =>
     {
         e.preventDefault();
         addClientCall(dispatch,{user:user._id,...inputs});
-        handle_show_client();
+        handle_show();
     } 
     
     const handle_input = ({target}) => setInputs({...inputs,[target["name"]]:target.value});
@@ -33,7 +33,7 @@ const AddClient = ({handle_show_client}) =>
     const inputs_show = inputsNames.map((input,i) => <input 
                                                     key={"addClInput_"+i} 
                                                     className={css.addclientCont__input}
-                                                    placeholder={language === "español" ? inputsEsp[i] : inputsEng[i]} 
+                                                    placeholder={language === "english" ? inputsEng[i] : inputsEsp[i] } 
                                                     type="text" 
                                                     name={input}
                                                     onChange={handle_input}
@@ -41,11 +41,11 @@ const AddClient = ({handle_show_client}) =>
 
     return(
         <form id={css.addclientCont} onSubmit={handle_submit}>
-            <h2 id={css.addclientCont__h2}> {language === "español" ? "Agregar Nuevo Cliente" : "Add New Client"} </h2>
+            <h2 id={css.addclientCont__h2}> {language === "english" ? "Add New Client" : "Agregar Nuevo Cliente" } </h2>
 
             {inputs_show}
 
-            <button id={css.addclientCont__button}> {language === "español" ? "Agregar" : "Add New"} </button>
+            <button id={css.addclientCont__button}> {language === "english" ? "Add New" : "Agregar"} </button>
         </form>
     )
 }

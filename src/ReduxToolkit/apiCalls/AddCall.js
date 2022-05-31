@@ -6,7 +6,7 @@ export const addClientCall = async (dispatch,info) =>{
     try
     {
         console.log(info)
-        const {data} = await axios.post("http://localhost:3001/api/clients",info); 
+        const {data} = await axios.post("https://ctech-chllng-mohorcic.herokuapp.com/api/clients",info); 
         console.log(data)
         dispatch(addClient(data));
     }
@@ -19,10 +19,9 @@ export const addClientCall = async (dispatch,info) =>{
 export const addHistoryCall = async (dispatch,info,idClient) =>{
     try
     {
-        const {data} = await axios.post("http://localhost:3001/api/order/"+idClient,info); 
+        const {data} = await axios.post("https://ctech-chllng-mohorcic.herokuapp.com/api/order/"+idClient,info); 
         console.log(data)
         dispatch(addOrder(data));
-        //dispatch(changeClientGlasses( { client:idClient, glasses:info.glasses } ))
         dispatch(changeClientDetGlasses(data.glasses))
     }
     catch(err)

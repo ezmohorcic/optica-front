@@ -28,11 +28,13 @@ const GlassInputs = ({setting,state}) =>
 {
     //HANDLERS
     const handle_input = ({target}) => setting({...state,[target["name"]]:target.value}) 
+    const handle_sig = ({target}) => setting({ ...state, [target["name"]]: state[target["name"]] === "+" ? "-" : "+" })
 
     return(
         <section className={css.glassInput}>
             ESF: 
-                <input style={{width:"3rem"}} type="number" value={state.esf_m} name="esf_m" id={css.glassesCalc__section__whole} onChange={handle_input}/> 
+                <button className={css.glassInput__button} onClick={handle_sig} name="esf_sig">{state.esf_sig}</button>
+                <input type="number" value={state.esf_m} min="0" name="esf_m" id={css.glassesCalc__section__whole} onChange={handle_input}/> 
                 .
                 <select name="esf_f" id={css.glassesCalc__section__float} onChange={handle_input}>
                    <option value="">0</option>
@@ -42,7 +44,8 @@ const GlassInputs = ({setting,state}) =>
                 </select>
 
             CIL: 
-                <input style={{width:"3rem"}} type="number" value={state.cil_m} name="cil_m" id={css.glassesCalc__section__whole} onChange={handle_input}/> 
+                <button className={css.glassInput__button} onClick={handle_sig} name="cil_sig">{state.cil_sig}</button>
+                <input type="number" value={state.cil_m} min="0" name="cil_m" id={css.glassesCalc__section__whole} onChange={handle_input}/> 
                 .
                 <select name="cil_f" id={css.glassesCalc__section__float} onChange={handle_input}>
                    <option value="">0</option>
@@ -52,7 +55,7 @@ const GlassInputs = ({setting,state}) =>
                 </select>
 
             ANG: 
-                <input style={{width:"3rem"}} type="number" value={state.cil_ang} name="cil_ang" min="0" max="180" id={css.glassesCalc__section__whole} onChange={handle_input}/> 
+                <input type="number" value={state.cil_ang} name="cil_ang" min="0" max="180" id={css.glassesCalc__section__ang} onChange={handle_input}/> 
             °
         </section>
     )
@@ -61,17 +64,28 @@ const GlassInputs = ({setting,state}) =>
 export const GlassesCalc = ({submit}) =>
 {
     //STATES
-    const [right, setRight] = useState({ esf_m:0, esf_f:"", cil_m:0, cil_f:"", cil_ang:0})
-    const [left, setLeft] = useState({ esf_m:0, esf_f:"", cil_m:0, cil_f:"",cil_ang:0})
+    const [right, setRight] = useState({ esf_sig:"+", esf_m:0, esf_f:"", cil_sig:"+", cil_m:0, cil_f:"", cil_ang:0})
+    const [left, setLeft] = useState({ esf_sig:"+" ,esf_m:0, esf_f:"", cil_sig:"+", cil_m:0, cil_f:"",cil_ang:0})
     //REDUX
     const user = useSelector( state => state.user.user);
 
     //HANDLES
     const handle_construct = () =>
     {
-        const right_full = [right.esf_m + right.esf_f, right.cil_m + right.cil_f, right.cil_ang];
-        const left_full = [left.esf_m + left.esf_f, left.cil_m + left.cil_f, left.cil_ang];
 
+        const right_full = 
+        [
+            (right.esf_sig =="+"? "":"-") + (right.esf_m + right.esf_f),
+            (right.cil_sig =="+"? "":"-") + (right.cil_m + right.cil_f),
+            right.cil_ang
+        ];
+        const left_full = 
+        [
+            (left.esf_sig =="+"? "":"-") + (left.esf_m + left.esf_f), 
+            (left.cil_sig =="+"? "":"-") + (left.cil_m + left.cil_f), 
+            left.cil_ang
+        ];
+        console.log(right_full)
         return [construct_glass_prescription(right_full,"DER: "), construct_glass_prescription(left_full,"IZQ: ")]
     }
 
@@ -79,7 +93,7 @@ export const GlassesCalc = ({submit}) =>
     {
         const [right_show, left_show] = handle_construct()
         return (
-            <section> 
+            <section className={css.construct}> 
                 <p>{right_show}</p> 
                 <p>{left_show}</p> 
             </section>
@@ -98,8 +112,10 @@ export const GlassesCalc = ({submit}) =>
     return(
         <article id={css.glassesCalc}>
             
-            <GlassInputs setting={handle_submit(setRight)} state={right} />
-            <GlassInputs setting={handle_submit(setLeft)} state={left} />
+            <section>
+                <GlassInputs setting={handle_submit(setRight)} state={right} />
+                <GlassInputs setting={handle_submit(setLeft)} state={left} />
+            </section>
 
             {handle_show_construct()}
 

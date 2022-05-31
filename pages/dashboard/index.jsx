@@ -1,6 +1,6 @@
 import css from "./dashboard.module.css";
 
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import AddClient from "../../src/components/AddClient/AddClient";
 import AddTicket from "../../src/components/AddTicket/AddTicket";
 import { ClientDetailed, Clients } from "../../src/components/Clients/Clients";
@@ -8,8 +8,10 @@ import HeaderLog from "../../src/components/Header/Header";
 import SearchBar from "../../src/components/SearchBar/SearchBar";
 import { Tickets } from "../../src/components/Tickets/Tickets";
 import { useSelector } from "react-redux";
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useLoginRedirect } from "../../src/components/helpers/useHooks";
+import { TO_LOGIN } from "../../src/ReduxToolkit/consts";
 
 export default function Dashboard()
 {
@@ -22,6 +24,11 @@ export default function Dashboard()
 
     //REDUX
     const {lenguage,theme} = useSelector( state => state.customs );
+    const {user,status} = useSelector( state => state.user);
+    const redirect = useLoginRedirect(TO_LOGIN,user)
+
+    //EFFECTS
+    useEffect(() => redirect,[user])
 
     //HANDLE 
     const handle_show_client = () => setAddClient(!show_addClient);
@@ -45,6 +52,14 @@ export default function Dashboard()
     if(show_tickets) middle_show = <Tickets handle_show_tickets={handle_show_tickets}/>;
     else if(show_detailed) middle_show = <ClientDetailed handle_show_new={handle_show_newTicket} handle_back={handle_show_detailed}/>;
     else middle_show = <Clients handle_show_detailed={handle_show_detailed}/>
+
+    const show_add = (
+        <div id={css.dashboardCont__back1}>
+            <div id={css.backCancel} onClick={ show_addClient ? handle_show_client : handle_show_newTicket} > <FontAwesomeIcon icon={ faTimes } /> </div>
+            {show_addClient ? <AddClient handle_show={handle_show_client}/> : <AddTicket handle_show={handle_show_newTicket}/> }
+        </div>
+    )
+
     return(
         <Fragment>
             <HeaderLog/>
@@ -52,10 +67,6 @@ export default function Dashboard()
                 
                 <section id={css.dashboardCont__section}>
                     <SearchBar/>
-
-                    <div id={css.dashboardCont__section__middle}> 
-                        {middle_show} 
-                    </div>
 
                     <aside id={css.dashboardCont__section__left}>
                         <button id={css.dashboardCont__section__left__clientBut} onClick={handle_show_client}>
@@ -66,10 +77,13 @@ export default function Dashboard()
                             {show_tickets? "Tickets!" : "Clients!"} 
                         </button>
                     </aside>
+
+                    <div id={css.dashboardCont__section__middle}> 
+                        {middle_show} 
+                    </div>
                 </section>
 
-                {show_addClient && <div onClick={handle_show_client}  id={css.dashboardCont__back1}><AddClient handle_show={handle_show_client}/></div>}
-                {show_addTicket && <div onClick={handle_show_newTicket} id={css.dashboardCont__back1}><AddTicket handle_show={handle_show_newTicket}/></div>}
+                { (show_addClient || show_addTicket) && show_add }
                 
             </main>
         </Fragment>

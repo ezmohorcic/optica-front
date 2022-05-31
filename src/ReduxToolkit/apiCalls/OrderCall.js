@@ -4,7 +4,7 @@ import { addOrder } from "../reducers/orderSlice";
 export const addOrderCall = async (dispatch,info) =>{
     try
     {
-        const {data} = await axios.post(`http://localhost:3001/api/order/${info.client}`,info); 
+        const {data} = await axios.post(`https://ctech-chllng-mohorcic.herokuapp.com/api/order/${info.client}`,info); 
         console.log(data)
         dispatch(addOrder(data));
     }

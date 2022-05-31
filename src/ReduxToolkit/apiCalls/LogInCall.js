@@ -5,7 +5,7 @@ export const loginCall = async (dispatch,info) =>{
     try
     {
         console.log(info)
-        const {data} = await axios.post("http://localhost:3001/api/login",info); 
+        const {data} = await axios.post("https://ctech-chllng-mohorcic.herokuapp.com/api/login",info); 
         dispatch(loginSuccess(data));
     }
     catch(err)

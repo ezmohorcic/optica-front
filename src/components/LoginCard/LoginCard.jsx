@@ -24,8 +24,7 @@ const inputsNames=["email","password"];
     //ON MOUNT
     useEffect( redirect ,[user]);
 
-    //HANDLERS
-    
+    //HANDLERS   
     const handle_submit = () =>loginCall(dispatch,inputs);
     const handleInput = ({target}) => setInputs({...inputs,[target["name"]]:target.value});
 

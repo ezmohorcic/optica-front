@@ -12,9 +12,11 @@ import GlassesCalc from '../src/components/GlassesCalc/GlassesCalc.jsx';
 export default function index()
 {
     return(
-           <main>
+           <main id='loginShow'>
                 <LoginCard/>
+                <div id="glassesCalcCont">
                 <GlassesCalc submit={()=>{}}/>
+                </div>
            </main>
     )
 }

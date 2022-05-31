@@ -37,9 +37,9 @@ const clientsSlice = createSlice({
             state.status = SERVER_2xx;
             state.clients = [...state.clients];
         },
-        deleteClient: ( state, {payload} ) =>
+        deleteClient: ( state, action ) =>
         {            
-            state.clients = state.clients.filter(filterById(payload._id));
+            state.clients = state.clients.filter(filterById(action.payload));
             state.status = SERVER_2xx;
         },
     }
@@ -69,8 +69,21 @@ const clientDetailedSlice = createSlice({
         },
         changeClientDetGlasses: ( state,action ) =>
         {            
-            state.client = {...state.client,actualGlasses:action.payload};
+            const {client,glasses,date,prices,details} = action.payload;
+            state.client = {...state.client, actualGlasses:glasses, details:details, date:date, prices:prices};
             state.status = SERVER_2xx;
+        },
+        changeClientDetInfo: ( state,action ) =>
+        {            
+            const {email,phoneNumber} = action.payload;
+            state.client = {...state.client, email:email, phoneNumber:phoneNumber};
+            state.status = SERVER_2xx;
+        },
+        changeClientDetName: ( state,action ) =>
+        {            
+            const {email,phoneNumber} = action.payload;
+            state.client = {...state.client, email:email, phoneNumber:phoneNumber};
+            state.status = SERVER_2xx;          
         },
     }
 });
@@ -86,7 +99,8 @@ export const {
 export const {
     getClientDetailed,
     cleanClientDetailed,
-    changeClientDetGlasses
+    changeClientDetGlasses,
+    changeClientDetInfo,
 } = clientDetailedSlice.actions;
 
 export const clientDetailedReducer = clientDetailedSlice.reducer;

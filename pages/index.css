@@ -19,6 +19,32 @@ body{
 }
 
 
+#loginShow{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  height: 100%;
+}
+
+#glassesCalcCont{
+  width: 100%;
+  margin: auto;
+}
+
+
+
+
+
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /*Scrollbar*/
 /* width */
 ::-webkit-scrollbar {
