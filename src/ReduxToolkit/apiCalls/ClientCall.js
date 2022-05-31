@@ -4,7 +4,7 @@ import { changeClientDetInfo, deleteClient, getClientDetailed, newPageClients } 
 export const getClientDetailedCall = async (dispatch,info) =>{
     try
     {
-        const {data} = await axios.get("http://localhost:3001/api/clients?idClient="+info); 
+        const {data} = await axios.get("https://ctech-chllng-mohorcic.herokuapp.com/api/clients?idClient="+info); 
         dispatch(getClientDetailed(data));
     }
     catch(err)
@@ -18,7 +18,7 @@ export const getSearchCall = async (dispatch,search,idUser) =>
 {
     try
     {
-        const {data} = await axios.get(`http://localhost:3001/api/clients/search/${idUser}?search=${search}`); 
+        const {data} = await axios.get(`https://ctech-chllng-mohorcic.herokuapp.com/api/clients/search/${idUser}?search=${search}`); 
         dispatch(newPageClients(data))
     }
     catch(e)
@@ -33,7 +33,7 @@ export const getClientNextCall = async (dispatch,page,idUser) =>
 {
     try
     {
-        const {data} = await axios.get(`http://localhost:3001/api/clients/getAll/${idUser}?page=${page+1}`); 
+        const {data} = await axios.get(`https://ctech-chllng-mohorcic.herokuapp.com/api/clients/getAll/${idUser}?page=${page+1}`); 
         dispatch(newPageClients(data))
     }
     catch(e)
