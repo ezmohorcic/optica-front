@@ -17,10 +17,10 @@ const userSlice = createSlice({
         {
             status = payload;
         },
-        logout: ({user,status}) =>
+        logout: (state) =>
         {
-            status = STARTING_STATUS;
-            user = {};
+            state.status = STARTING_STATUS;
+            state.user = {};
         },
         addClient: ({user},{payload}) =>
         {
