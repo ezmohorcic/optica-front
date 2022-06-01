@@ -16,7 +16,7 @@ const AddTicket = ({handle_show}) =>
     const {lenguage,theme} = useSelector( state => state.customs );
 
     //STATES
-    const [inputs,setInputs] = useState({user:user._id,client:client._id,glasses:client.actualGlasses,date:new Date().toDateString(),done:false,prices:["0","0","0","0"],details:""});
+    const [inputs,setInputs] = useState({user:user._id,client:client._id,glasses:[...client.actualGlasses],date:new Date().toDateString(),done:false,prices:["0","0","0","0"],details:""});
 
     //HANDLER
     const handle_submit = (e) =>

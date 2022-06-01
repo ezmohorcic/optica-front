@@ -58,6 +58,7 @@ export const ClientDetailed = ({handle_show_new, handle_back}) =>
     const {client,status} = useSelector( state => state.clientDetailed );
     const {lenguage,theme} = useSelector( state => state.customs );
     const dispatch = useDispatch();
+    console.log("clienteDetailed")
 
     //STATE
     const [edit,setEdit] = useState({phoneNumber:client.phoneNumber,email:client.email})
@@ -101,22 +102,22 @@ export const ClientDetailed = ({handle_show_new, handle_back}) =>
 
                 <strong>Lejos:</strong>  
                 <section className={css.detailedClient__section__info}>
-                    <p className={css.detailedClient__section__info__p1}> {client.actualGlasses[1] ? client.actualGlasses[1] : "X"}</p>
-                    <p className={css.detailedClient__section__info__p2}>$ {client.prices[1]}</p>
+                    <p className={css.detailedClient__section__info__p1}> {client.actualGlasses ? (client.actualGlasses[1] ? client.actualGlasses[1] : "X") : "X"}</p>
+                    <p className={css.detailedClient__section__info__p2}>$ {client.prices? client.prices[1] : ""}</p>
                 </section>
                 
 
                 <strong>Cerca:</strong>
                 <section className={css.detailedClient__section__info}>
-                    <p className={css.detailedClient__section__info__p1}> {client.actualGlasses[0] ? client.actualGlasses[0] : "X"}</p> 
-                    <p className={css.detailedClient__section__info__p2}>$ {client.prices[0]}</p>
+                    <p className={css.detailedClient__section__info__p1}> {client.actualGlasses ? (client.actualGlasses[0] ? client.actualGlasses[0] : "X") : "X"}</p> 
+                    <p className={css.detailedClient__section__info__p2}>$ {client.prices? client.prices[0] : ""}</p>
                 </section>
 
 
                 <strong>{"Precio de Armazones:"}</strong>
                 <section className={css.detailedClient__section__info}>
-                    <p>Ar Lejos: ${client.prices[3]}</p>
-                    <p>Ar Cerca: ${client.prices[2]}</p>
+                    <p>Ar Lejos: ${client.prices? client.prices[3] : ""}</p>
+                    <p>Ar Cerca: ${client.prices? client.prices[2] : ""}</p>
                     <p>total: ${show_total}</p>    
                 </section>  
 
