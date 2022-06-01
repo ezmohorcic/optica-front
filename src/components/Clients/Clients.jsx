@@ -14,7 +14,7 @@ const copy = (e) => navigator.clipboard.writeText(e).then(alert("Copied!"));
 const ClientHistory = ({ticket}) =>
 {
 
-    const show_total = ticket.prices.reduce((total,element) => element ? total + parseFloat(element) : total,0)
+    const show_total = ticket.prices?.reduce((total,element) => element ? total + parseFloat(element) : total,0)
 
     return(
         <div className={css.historyCard}>
@@ -77,7 +77,7 @@ export const ClientDetailed = ({handle_show_new, handle_back}) =>
 
     //VARIABLES FOR SHOW
     const history_arr = client.history?.map( (ticket, i) => <ClientHistory key={"history_card_"+i} ticket={ticket} /> )
-    const show_total = client.prices.reduce((total,element) => element ? total + parseFloat(element) : total,0)
+    const show_total = client.prices?.reduce((total,element) => element ? total + parseFloat(element) : total,0)
 
     if(status === STARTING_STATUS) return(<div>Loading</div>)
     if(status === SERVER_5xx) return( <div> Error </div>) 
