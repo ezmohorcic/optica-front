@@ -18,9 +18,8 @@ const inputsNames=["email","password"];
     //REDUX
     const dispatch = useDispatch();
     const {user,status} = useSelector( state => state.user);
-    console.log("21",user)
     const redirect = useLoginRedirect(FROM_LOGIN,user)
-
+    console.log(user)
     //ON MOUNT
     useEffect( redirect ,[user]);
 

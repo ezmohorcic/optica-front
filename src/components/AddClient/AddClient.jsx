@@ -22,7 +22,7 @@ const AddClient = ({handle_show}) =>
     const handle_submit = (e) =>
     {
         e.preventDefault();
-        addClientCall(dispatch,{user:user._id,...inputs});
+        addClientCall(dispatch, {user:user._id,...inputs}, user.accessToken);
         handle_show();
     } 
     

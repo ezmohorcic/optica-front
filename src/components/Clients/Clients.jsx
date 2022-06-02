@@ -52,13 +52,12 @@ const ClientHistory = ({ticket}) =>
 }
  
 
-export const ClientDetailed = ({handle_show_new, handle_back}) =>
+export const ClientDetailed = ({handle_show_new, handle_back,token}) =>
 {
     //REDUX
     const {client,status} = useSelector( state => state.clientDetailed );
     const {lenguage,theme} = useSelector( state => state.customs );
     const dispatch = useDispatch();
-    console.log("clienteDetailed")
 
     //STATE
     const [edit,setEdit] = useState({phoneNumber:client.phoneNumber,email:client.email})
@@ -70,7 +69,7 @@ export const ClientDetailed = ({handle_show_new, handle_back}) =>
     const handle_change = ({target}) => setEdit({...edit, [target["name"]]:target.value});
     const handle_save = () =>
     {
-        changeClientCall(dispatch,client._id,edit);
+        changeClientCall(dispatch,client._id,edit,token);
         setEditShow(!editShow);
     }
     const handle_discard = () => setEditShow(!editShow)
@@ -159,7 +158,7 @@ export const ClientDetailed = ({handle_show_new, handle_back}) =>
     )
 }
 
-export const ClientCard = ({client,handle_show_detailed}) =>
+export const ClientCard = ({client,handle_show_detailed,token}) =>
 {
     //STATE
     const [deleted,setDeleted] = useState(0);
@@ -168,7 +167,7 @@ export const ClientCard = ({client,handle_show_detailed}) =>
     useEffect(() =>
     {
         if(deleted===1) alert("Estas por borrar un cliente! Click de nuevo para borrar")
-        if(deleted===2) deleteClientCall(dispatch,client._id)
+        if(deleted===2) deleteClientCall(dispatch,client._id,token)
     },[deleted])
 
     //REDUX
@@ -177,7 +176,7 @@ export const ClientCard = ({client,handle_show_detailed}) =>
     //HANDLERS
     const handleShow = () =>
     {
-        getClientDetailedCall(dispatch,client._id)
+        getClientDetailedCall(dispatch,client._id,token)
         handle_show_detailed()
     }
     const handle_copy = ({target}) =>
@@ -211,11 +210,12 @@ export const Clients = ({handle_show_detailed}) =>
     //ONMOUNT
     useEffect( () =>
     {
-        if(!clients.length && user.user._id) getClientNextCall(dispatch,page,user.user._id)
+        console.log("213",user.user._id)
+        if(!clients.length && user.user._id) getClientNextCall(dispatch,page,user.user._id, user.user.accessToken)
     },[user]);
 
     //VARIABLES FOR SHOW
-    const clients_show = clients.map( (client,i) => <ClientCard key={"client_card_"+i} handle_show_detailed={handle_show_detailed} client={client} /> )
+    const clients_show = clients.map( (client,i) => <ClientCard key={"client_card_"+i} token={user.user.accessToken} handle_show_detailed={handle_show_detailed} client={client} /> )
 
     if(status===LOADING_0 || status===STARTING_STATUS) return (<main>Loading</main>)
     if(status===SERVER_4xx || status===SERVER_5xx) return (<main>Error</main>)

@@ -2,12 +2,10 @@ import axios from "axios";
 import { addClient, changeClientDetGlasses, changeClientGlasses } from "../reducers/clientSlice";
 import { addOrder } from "../reducers/orderSlice";
 
-export const addClientCall = async (dispatch,info) =>{
+export const addClientCall = async (dispatch,info,token) =>{
     try
     {
-        console.log(info)
-        const {data} = await axios.post("https://ctech-chllng-mohorcic.herokuapp.com/api/clients",info); 
-        console.log(data)
+        const {data} = await axios.post("https://ctech-chllng-mohorcic.herokuapp.com/api/clients", info, {headers: {token}}); 
         dispatch(addClient(data));
     }
     catch(err)
@@ -16,13 +14,12 @@ export const addClientCall = async (dispatch,info) =>{
     }
 }
 
-export const addHistoryCall = async (dispatch,info,idClient) =>{
+export const addHistoryCall = async (dispatch,info,idClient,token) =>{
     try
     {
-        const {data} = await axios.post("https://ctech-chllng-mohorcic.herokuapp.com/api/order/"+idClient,info); 
-        console.log(data)
+        const {data} = await axios.post("https://ctech-chllng-mohorcic.herokuapp.com/api/order/"+idClient, info, {headers: {token}}); 
         dispatch(addOrder(data));
-        dispatch(changeClientDetGlasses(data.glasses))
+        dispatch(changeClientDetGlasses({glasses:data.glasses,date:data.date,prices:data.prices,details:data.details}))
     }
     catch(err)
     {

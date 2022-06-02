@@ -1,17 +1,19 @@
 import css from "./dashboard.module.css";
 
 import React, { Fragment, useEffect, useState } from "react";
+import Router from 'next/router';
 import AddClient from "../../src/components/AddClient/AddClient";
 import AddTicket from "../../src/components/AddTicket/AddTicket";
 import { ClientDetailed, Clients } from "../../src/components/Clients/Clients";
 import HeaderLog from "../../src/components/Header/Header";
 import SearchBar from "../../src/components/SearchBar/SearchBar";
 import { Tickets } from "../../src/components/Tickets/Tickets";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useLoginRedirect } from "../../src/components/helpers/useHooks";
 import { TO_LOGIN } from "../../src/ReduxToolkit/consts";
+import { cleanClientDetailed } from "../../src/ReduxToolkit/reducers/clientSlice";
 
 export default function Dashboard()
 {
@@ -25,14 +27,18 @@ export default function Dashboard()
     //REDUX
     const {lenguage,theme} = useSelector( state => state.customs );
     const {user,status} = useSelector( state => state.user);
-    const redirect = useLoginRedirect(TO_LOGIN,user)
-
+    const dispatch = useDispatch()
+    
     //EFFECTS
-    useEffect(() => redirect,[user])
+    useEffect(() => { if(!Object.keys(user).length) Router.push('/') },[user])
 
     //HANDLE 
     const handle_show_client = () => setAddClient(!show_addClient);
-    const handle_show_detailed = () => setDetailed(!show_detailed);
+    const handle_show_detailed = () => 
+    {
+        setDetailed(!show_detailed)
+        dispatch( cleanClientDetailed() )
+    };
     const handle_show_tickets = () => setTickets(!show_tickets)
 
     const handle_show_newTicket = () =>
@@ -50,7 +56,7 @@ export default function Dashboard()
 
     let middle_show = "";
     if(show_tickets) middle_show = <Tickets handle_show_tickets={handle_show_tickets}/>;
-    else if(show_detailed) middle_show = <ClientDetailed handle_show_new={handle_show_newTicket} handle_back={handle_show_detailed}/>;
+    else if(show_detailed) middle_show = <ClientDetailed token={user.accessToken} handle_show_new={handle_show_newTicket} handle_back={handle_show_detailed}/>;
     else middle_show = <Clients handle_show_detailed={handle_show_detailed}/>
 
     const show_add = (

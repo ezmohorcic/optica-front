@@ -22,7 +22,7 @@ const AddTicket = ({handle_show}) =>
     const handle_submit = (e) =>
     {
         e.preventDefault();
-        addHistoryCall(dispatch,inputs,client._id);
+        addHistoryCall(dispatch,inputs,client._id,user.accessToken);
         handle_show();
     }
 

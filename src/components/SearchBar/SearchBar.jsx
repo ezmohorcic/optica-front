@@ -21,7 +21,7 @@ const SearchBar = () =>
     const handle_search = () =>
     {
         dispatch(loadingClients())
-        getSearchCall(dispatch,search,user._id)
+        getSearchCall(dispatch,search,user._id, user.accessToken)
     }
     const handle_input = ({target}) => setSearch(target.value)
 

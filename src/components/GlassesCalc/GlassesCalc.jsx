@@ -85,7 +85,6 @@ export const GlassesCalc = ({submit}) =>
             (left.cil_sig =="+"? "":"-") + (left.cil_m + left.cil_f), 
             left.cil_ang
         ];
-        console.log(right_full)
         return [construct_glass_prescription(right_full,"DER: "), construct_glass_prescription(left_full,"IZQ: ")]
     }
 
