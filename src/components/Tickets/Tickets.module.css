@@ -1,0 +1,50 @@
+#maintickets{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+
+#maintickets > button{
+    padding: 0.2rem 0.6rem 0.2rem 0.6rem;
+
+    border-radius: 0.3rem;
+    border: none;
+    border-bottom: 2px solid transparent;
+
+    background-color: transparent;
+    color: #A425FF;
+    
+    font-size: 0.85rem;
+    transition: 0.2s;
+}
+#maintickets > button:hover{
+    color: #7100C3;
+    border-color: #B8C0FF;
+}
+
+
+.ticketCard > h3{
+    width: fit-content;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin-left: 1rem;
+    margin-bottom: 0;
+
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border: 3px solid #F0F1FF;
+    border-bottom: none;
+
+
+    background-color: #B8C0FF;
+}
+.ticketCard > div{
+    margin-top: 0;
+}
+
+
+
+@media screen and (max-width:768px) {
+    #maintickets{
+        overflow-y: visible;
+    }
+}

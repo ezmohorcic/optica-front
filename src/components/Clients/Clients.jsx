@@ -11,7 +11,7 @@ import { changeClientCall, deleteClientCall, getClientDetailedCall, getClientNex
 const copy = (e) => navigator.clipboard.writeText(e).then(alert("Copied!"));
 
 
-const ClientHistory = ({ticket}) =>
+export const ClientHistory = ({ticket}) =>
 {
 
     const show_total = ticket.prices?.reduce((total,element) => element ? total + parseFloat(element) : total,0)
@@ -210,7 +210,6 @@ export const Clients = ({handle_show_detailed}) =>
     //ONMOUNT
     useEffect( () =>
     {
-        console.log("213",user.user._id)
         if(!clients.length && user.user._id) getClientNextCall(dispatch,page,user.user._id, user.user.accessToken)
     },[user]);
 

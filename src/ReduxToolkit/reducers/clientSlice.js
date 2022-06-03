@@ -70,7 +70,6 @@ const clientDetailedSlice = createSlice({
         changeClientDetGlasses: ( state,action ) =>
         {            
             const {client,glasses,date,prices,details} = action.payload;
-            console.log(glasses,state.client.actualGlasses)
             state.client = {...state.client, actualGlasses:glasses, details:details, date:date, prices:prices};
             state.status = SERVER_2xx;
         },

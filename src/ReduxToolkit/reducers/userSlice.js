@@ -26,9 +26,13 @@ const userSlice = createSlice({
         {
             user.clients= [payload,...user.clients]
         },
-        addHistory: ({user},{payload}) =>
+        addHistory: (state,action) =>
         {
-            user.history= [payload,...user.history]
+            state.user.history= [action.payload,...state.user.history]
+        },
+        monthHistory: (state,action) =>
+        {
+            state.user.history= action.payload;
         }
         
     }
@@ -40,6 +44,7 @@ export const {
     logout,
     addClient,
     addHistory,
+    monthHistory
 } = userSlice.actions;
 
 export const userReducer = userSlice.reducer;
