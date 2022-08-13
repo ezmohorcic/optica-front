@@ -115,8 +115,8 @@ export const ClientDetailed = ({handle_show_new, handle_back,token}) =>
 
                 <strong>{"Precio de Armazones:"}</strong>
                 <section className={css.detailedClient__section__info}>
-                    <p>Ar Lejos: ${client.prices? client.prices[3] : ""}</p>
-                    <p>Ar Cerca: ${client.prices? client.prices[2] : ""}</p>
+                    <p>Ar Lejos: ${client.prices? client.prices[2] : ""}</p>
+                    <p>Ar Cerca: ${client.prices? client.prices[3] : ""}</p>
                     <p>total: ${show_total}</p>    
                 </section>  
 
