@@ -16,8 +16,9 @@ const construct_glass_prescription = ([esf,cil,ang],command) =>
         out = out + `${esf !=0? "ESF: " + esf : ""} ${cil!=0? "CIL: " + cil + " ang: " + ang +"°" : ""}`
     }
     else
-    {
-        out = out + `${esf>0 ? "+" : ""} ${ parseFloat(esf) + parseFloat(cil)} ` + `${cil<0 ? "+" : ""} ${cil*(-1)} , ang: ${parseInt(ang) > 90 ? parseInt(ang) - 90 : parseInt(ang) + 90 }°`
+    {   
+        const angOut = parseInt(ang) === 0 ? 0 : ( parseInt(ang) === 90 ? 90 : ( parseInt(ang) > 90 ? parseInt(ang) - 90 : parseInt(ang) + 90 ) )
+        out = out + `${esf>0 ? "+" : ""} ${ parseFloat(esf) + parseFloat(cil)} ` + `${cil<0 ? "+" : ""} ${cil*(-1)} , ang: ${ angOut }°`
     }
 
     return out;
